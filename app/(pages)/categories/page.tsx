@@ -2,6 +2,8 @@ import { Card, CardDescription, CardHeader, } from '@/components/ui/card';
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react'
+import { CategoryI } from '@/app/interfaces/category';
+
 
 export default async function Categories() {
 

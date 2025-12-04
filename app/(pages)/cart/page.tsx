@@ -10,7 +10,7 @@ import { Loader2, Trash2 } from 'lucide-react'
 
 import Link from 'next/link'
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
 
@@ -31,7 +31,11 @@ export default function Cart() {
 
 
 
-  if (typeof cartData?.data.products[0]?.product == 'string' || cartData == null) { getCart(); }
+  useEffect(() => {
+    if (!cartData || typeof cartData?.data.products[0]?.product === 'string') {
+      getCart();
+    }
+  }, [cartData, getCart]);
 
   async function removeCartItem(productId: string) {
     const token=await getUserToken()

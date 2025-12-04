@@ -1,3 +1,4 @@
+import { CategoryI } from "./category";
 
 
 

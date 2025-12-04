@@ -4,10 +4,10 @@
 export interface WishResponse {
   status: "success" | "fail";
   count: number;
-  data: Data[];
+  data: otherData[];
 }
 
-export interface Data {
+export interface otherData {
  
   sold: number;
   images: string[];
