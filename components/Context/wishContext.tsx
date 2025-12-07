@@ -1,6 +1,7 @@
 'use client'
 import { WishResponse } from "@/app/interfaces/getWish";
 import { getUserToken } from "@/lib/Helpers/getUserToken";
+import { useSession } from "next-auth/react";
 import { createContext, ReactNode, useEffect, useState } from "react";
 
 export const WishContext = createContext<{
@@ -44,13 +45,14 @@ export default function WishContextProvider({ children }: { children: ReactNode 
         }
         
         
-        useEffect(()=>{
-        
-       getWishList()
-        
-        },[]
-        
-        )
+      const { data: session } = useSession();
+
+useEffect(() => {
+  if (session) { 
+    getWishList();
+  }
+}, [session]);
+
       
     
 
