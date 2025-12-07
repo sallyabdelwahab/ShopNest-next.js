@@ -29,7 +29,7 @@ const handler = NextAuth({
 
         if ("token" in payload) {
           return {
-            id: payload.user._id,
+            id:  payload.user.email,
             user: payload.user,
             token: payload.token,
           };

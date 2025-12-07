@@ -3,7 +3,7 @@ import { decode } from "next-auth/jwt"
 import { cookies } from "next/headers"
 
 export async function getUserToken() {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const token =
     cookieStore.get('__Secure-next-auth.session-token')?.value ||
